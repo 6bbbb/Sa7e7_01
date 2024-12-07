@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udemy-like Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2>Course Units</h2>
+            <ul>
+                <!-- الوحدة الأولى -->
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">Unit 1: Basics <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                        <li onclick="loadVideo('Introduction', 'https://www.dropbox.com/scl/fi/auff52647eefu0mj6cgz3/1..mp4?rlkey=sqtvwfri6tutxttqe7wgkc2tv&st=juqe7ssx&raw=1')">Video 1: Introduction</li>
+                        <li onclick="loadVideo('Getting Started', 'https://www.dropbox.com/scl/fi/qfgqqakzqzggfd811hbk0/2..mp4?raw=1')">Video 2: Getting Started</li>
+                    </ul>
+                </li>
+                <!-- الوحدة الثانية -->
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">Unit 2: Advanced Topics <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                        <li onclick="loadVideo('Advanced Techniques', 'https://www.dropbox.com/s/your-video-link.mp4?raw=1')">Video 1: Advanced Techniques</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h1 id="video-title">Select a Video</h1>
+            <video id="video-player" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </main>
+    </div>
+
+    <script>
+        // Function to toggle the visibility of a unit's video list
+        function toggleUnit(element) {
+            const videoList = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow');
+
+            if (videoList.style.display === 'block') {
+                videoList.style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                videoList.style.display = 'block';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Function to load a video
+        function loadVideo(title, url) {
+            const videoTitle = document.getElementById('video-title');
+            videoTitle.textContent = title;
+
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.querySelector('source').src = url;
+            videoPlayer.load();
+        }
+    </script>
+</body>
+</html>
