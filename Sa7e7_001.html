@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورة الهكر الاخلاقي صحيح</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>الوحدات</h2>
+            <ul>
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">تجهيز المختبر  <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                        <li onclick="loadVideo('1 - تثبيت نظام كالي  ', 'https://www.dropbox.com/scl/fi/auff52647eefu0mj6cgz3/1..mp4?rlkey=sqtvwfri6tutxttqe7wgkc2tv&st=oi8kskro&raw=1')">تثبيت نظام كالي 1 </li>
+                        <li onclick="loadYouTubeVideo('مشكلة تشغيل كالي', 'https://www.youtube.com/embed/BqgLTOie5_E')">مشكلة تشغيل كالي</li>
+                        <li onclick="loadVideo('3 - نظرة عامة على كالي', 'https://www.dropbox.com/scl/fi/p4hr89rv4quphf1ppeysq/3..mp4?rlkey=nupyvmb5vgfg65wmimu0er7q5&st=zmxlhmzl&raw=1')">نظرة عامة على كالي 3</li>
+                        <li onclick="loadVideo('4 - اوامر لينكس', 'https://www.dropbox.com/scl/fi/4czqye2n2kgn4k1gjve37/4..mp4?rlkey=54exo6h5ps1jkfm7nnzrycgoc&st=8zzzuvvx&raw=1')">اوامر لينكس 4</li>
+                        <li onclick="loadVideo('5 - تحديث كالي', 'https://www.dropbox.com/scl/fi/yee9veqmo00j9wd4oevzs/5..mp4?rlkey=4nnhl4ael1bk8xx5b6g0cvgho&st=t8pezumw&raw=1')">تحديث كالي 5</li>
+                    </ul>
+                </li>
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">اساسيات الشبكات <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                        <li onclick="loadVideo('قريبا', 'ب')">قريبا</li>
+                    </ul>
+                </li>
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">اختراق شبكات الوايفاي <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                        <li onclick="loadVideo('قريبا', 'ب')">قريبا</li>
+                    </ul>
+                </li>
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">اختراف الاجهزة داخل الشبكة ( Man in the middle attack) <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                    </ul>
+                </li>
+                <li class="unit">
+                    <h3 onclick="toggleUnit(this)">جمع معلومات عن هيكل الشبكة <span class="arrow">▼</span></h3>
+                    <ul class="video-list">
+                        <li onclick="loadVideo('قريبا', 'ب')">قريبا</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h1 id="video-title">Welcome to the Course</h1>
+            <img id="default-image" src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/PHi5ylHISmKYeZTTuehm" alt="الهكر">
+            <video id="video-player" controls style="display: none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Add a hidden iframe for YouTube videos -->
+            <iframe id="youtube-player" width="1280" height="720" style="display: none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </main>
+    </div>
+    <script>
+        function toggleUnit(element) {
+            const videoList = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow');
+            if (videoList.style.display === 'block') {
+                videoList.style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                videoList.style.display = 'block';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function loadVideo(title, url) {
+            const videoTitle = document.getElementById('video-title');
+            videoTitle.textContent = title;
+            const defaultImage = document.getElementById('default-image');
+            const videoPlayer = document.getElementById('video-player');
+            const youtubePlayer = document.getElementById('youtube-player');
+            defaultImage.style.display = 'none';
+            videoPlayer.style.display = 'block';
+            youtubePlayer.style.display = 'none';
+            videoPlayer.querySelector('source').src = url;
+            videoPlayer.load();
+        }
+
+        function loadYouTubeVideo(title, url) {
+            const videoTitle = document.getElementById('video-title');
+            videoTitle.textContent = title;
+            const defaultImage = document.getElementById('default-image');
+            const videoPlayer = document.getElementById('video-player');
+            const youtubePlayer = document.getElementById('youtube-player');
+            defaultImage.style.display = 'none';
+            videoPlayer.style.display = 'none';
+            youtubePlayer.style.display = 'block';
+            youtubePlayer.src = url;
+        }
+    </script>
+</body>
+</html>

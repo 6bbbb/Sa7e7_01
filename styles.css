@@ -1,0 +1,124 @@
+/* Reset styles */
+body, h1, h2, h3, ul, li, video, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #121212; /* خلفية داكنة */
+    color: #e5e5e5; /* نص فاتح */
+}
+
+/* Container */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 280px;
+    background-color: #222222; /* خلفية داكنة مع تدرج */
+    padding: 25px;
+    border-right: 2px solid #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h2 {
+    font-size: 1.8em;
+    color: #33c9ff;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar .unit h3 {
+    font-size: 1.2em;
+    color: #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar .unit h3:hover {
+    color: #33c9ff;
+    background: linear-gradient(135deg, #1e1e1e, #444444); /* تأثير التدرج في الخلفية */
+    transform: translateX(10px);
+}
+
+.sidebar .arrow {
+    font-size: 1.2em;
+    color: #888;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .arrow:hover {
+    color: #33c9ff;
+}
+
+.sidebar .video-list {
+    margin-left: 15px;
+    list-style: none;
+    display: none;
+}
+
+.sidebar .video-list li {
+    font-size: 1em;
+    color: #bbb;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar .video-list li:hover {
+    color: #33c9ff;
+    transform: translateX(5px);
+}
+
+/* Main content styles */
+.content {
+    flex: 1;
+    padding: 30px;
+    background-color: #121212;
+    background: linear-gradient(135deg, #1e1e1e, #444444); /* تأثير التدرج في الخلفية */
+    box-shadow: inset 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Title */
+.content h1 {
+    font-size: 2.5em;
+    color: #33c9ff;
+    margin-bottom: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Video player */
+.content video {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Default image */
+#default-image {
+    width: 60%;
+    margin: 20px auto;
+    display: block;
+    border: solid 3px #6a0dad;
+    border-radius: 10px;
+    animation: rgbGlow 4s infinite alternate;
+}
